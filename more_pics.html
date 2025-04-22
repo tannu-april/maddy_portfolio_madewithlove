@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MORE ABOUT PHOTOS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /*============================== VARIABLES ==============================*/
+    :root {
+        --bg-color: #0a0a0a;
+        --text-color: #f8f8f8;
+        --accent-color: #a855f7;
+        --nav-bg: #1a1a1a;
+        --card-bg: #121212;
+    }
+
+    body.light-mode {
+        --bg-color: #f3f3f3;
+        --text-color: #1a1a1a;
+        --nav-bg: #ffffff;
+        --card-bg: #eaeaea;
+    }
+
+    /*============================== BASE STYLES ==============================*/
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: 'Poppins', sans-serif;
+        transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /*============================== HEADER ==============================*/
+    header {
+        background: transparent;
+        padding: 2rem;
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+    }
+
+    header h1 {
+        font-size: 100px;
+        font-weight: 900;
+        color: transparent;
+        -webkit-text-stroke: 2px var(--accent-color);
+        background: transparent;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: inline-block;
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
+
+    /*============================== NAVIGATION ==============================*/
+    nav {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        background: transparent;
+        padding: 1rem 0;
+    }
+
+    nav a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--accent-color);
+    }
+
+    /*============================== SECTIONS ==============================*/
+    section {
+        position: relative;
+        padding: 3rem 2rem;
+        max-width: 1000px;
+        margin: auto;
+        animation: fadeIn 1s ease-in-out;
+        z-index: 1;
+        background-color: #29044c;
+    }
+
+    section::before {
+        content: "";
+        position: absolute;
+        top: -20%;
+        left: -10%;
+        width: 120%;
+        height: 140%;
+        background: radial-gradient(circle at center, rgb(169, 85, 247), transparent 70%);
+        animation: glowMove 6s ease-in-out infinite;
+        z-index: -1;
+        filter: blur(80px);
+        opacity: 0.7;
+    }
+
+    @keyframes glowMove {
+        0% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        50% {
+            transform: translate(30px, 20px) scale(1.05);
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+        }
+    }
+
+    /*============================== GALLERY ==============================*/
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(168, 85, 247, 0.25);
+        transition: transform 0.4s ease;
+    }
+
+    .gallery-item img:hover {
+        transform: scale(1.07);
+    }
+
+    /* Description box styling */
+    .gallery-item .description {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.7);
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.4s ease;
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif; /* Changed font family here */
+        pointer-events: none; /* So it doesn't block the click */
+        transform: translateY(100%); /* Initially off-screen */
+    }
+
+    .gallery-item.show-description .description {
+        opacity: 1;
+        transform: translateY(0); /* Slide in the description */
+    }
+
+    /*============================== FOOTER ==============================*/
+    footer {
+        background-color: transparent;
+        color: var(--text-color);
+        text-align: center;
+        padding: 2rem 1rem;
+        font-size: 1rem;
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 0.5px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    footer strong {
+        color: var(--accent-color);
+    }
+
+    footer-content p {
+        margin: 0.4rem 0;
+    }
+
+    /*============================== ANIMATIONS ==============================*/
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Photo Gallery </h1>
+  </header>
+  <nav>
+    <nav>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="photos.html">Photos</a>
+        <a href="more_pics.html">Extended Photographs</a>
+        <a href="videos.html">Videos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </nav>
+  </nav>
+  <section style="margin-top: 300px;">
+    <h2>Photography</h2>
+    <div class="gallery">
+      <div class="gallery-item" onclick="toggleDescription(this)">
+        <img src="img/photo1.jpeg" alt="Photo 1">
+        <div class="description">     
+            <p>
+              What I love most about this shot is the way it shows the temple in all its glory, yet also feels intimate. It's like you're right there, feeling the warmth of the sunlight, hearing the sounds of the devotees, and taking in the history with each step. A place like this doesn't just look beautiful — it makes you feel something deep inside.
+            </p>
+        </div>
+      </div>
+      <div class="gallery-item" onclick="toggleDescription(this)">
+        <img src="img/photo2.jpeg" alt="Photo 2">
+        <div class="description">Caught this shot from the office one day, just looking out the window. Sometimes, amidst all the hustle, you notice moments like these—where the sky is so calm and quiet, almost as if it's taking a break too. It’s one of those photos that reminds you to breathe and appreciate the little peaceful moments, even during a busy workday.</div>
+      </div>
+      <div class="gallery-item" onclick="toggleDescription(this)">
+        <img src="img/photo3.jpeg" alt="Photo 3">
+        <div class="description">A tranquil scene of endless blue, where fluffy clouds drift lazily, reminding us to pause and breathe. The sky whispers peace, inviting us to embrace stillness and let our minds wander freely.</div>
+      </div>
+      <div class="gallery-item" onclick="toggleDescription(this)">
+        <img src="img/photo4.jpeg" alt="Photo 4">
+        <div class="description">Captured from a different angle, this image reveals the same beloved Ganpati in a fresh light. The familiar form feels new—majestic yet comforting—showing how beauty changes with the eyes that see it.</div>
+      </div>
+      <div class="gallery-item" onclick="toggleDescription(this)">
+        <img src="img/photo5.jpeg" alt="Photo 5">
+        <div class="description">Captured this mid-match—drawn to the quiet tension, where every piece held a story, waiting to move.</div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 maddy's Lens</p>
+  </footer>
+
+  <script>
+    function toggleDescription(element) {
+      element.classList.toggle("show-description");
+    }
+  </script>
+</body>
+</html>
